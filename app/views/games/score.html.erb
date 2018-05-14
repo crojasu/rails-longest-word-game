@@ -8,14 +8,22 @@
 
   <p>Tus puntajes</p>
   <% session[:score].each_with_index do |score, index| %>
-  <ul class="unlisted">
-    <li> Juego numero <%= index +1 %>.- <%= score %>
-    </li>
-    <% end %>
-    <li>Total de puntos <%=session[:score].reduce :+  %></li>
-  </ul>
 
-  <%= link_to "Juega de nuevo", "new" %>
-    <br>
-  <%= link_to "Reset", "nuevo" %>
+<div class="tabla">
+  <table class="egt">
+    <tr>
+      <td>
+        Juego numero <%= index +1 %>.- <%= score %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Total de puntos <%=session[:score].reduce :+  %>   </td>
+      </tr>
+    </table>
 </div>
+    <%= link_to "Juega de nuevo", "new" %>
+    <br>
+    <%= link_to "Reset", "nuevo" %>
+  </div>
