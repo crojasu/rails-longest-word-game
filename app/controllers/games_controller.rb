@@ -35,12 +35,11 @@ class GamesController < ApplicationController
     end
   end
 
-  def all_scores
-    @all_scores = session[:score]
-  end
-
    def grid_validate(attempt)
     attempt.chars.all? { |char| !char.delete(char.upcase).nil? }
   end
 
+  def nuevo
+      reset_session
+    end
 end

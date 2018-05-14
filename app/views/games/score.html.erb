@@ -1,12 +1,21 @@
-<h1>Games#score</h1>
-<p>Los resultados son</p>
-<%= @results[:score] %>
-<%= @results[:message] %>
 
-<div class="row">
+
+<div class="rowi">
+  <h1>Puntaje Final</h1>
+  <p>Los resultados son</p>
+  <h2>  <%= @results[:message] %></h2>
+  <%= @results[:score] %>
+
   <p>Tus puntajes</p>
-  <% @all_scores.each do |score| %>
-  <%= score %>
-  <% end %>
-<%= link_to "Juega de nuevo", "new" %>
+  <% session[:score].each_with_index do |score, index| %>
+  <ul class="unlisted">
+    <li> Juego numero <%= index +1 %>.- <%= score %>
+    </li>
+    <% end %>
+    <li>Total de puntos <%=session[:score].reduce :+  %></li>
+  </ul>
+
+  <%= link_to "Juega de nuevo", "new" %>
+    <br>
+  <%= link_to "Reset", "nuevo" %>
 </div>
